@@ -4,7 +4,7 @@ class NewQuestion extends Component {
     render() {
         return (
             <div>
-                
+                <p>Hello from NewQuestion!</p>
             </div>
         );
     }

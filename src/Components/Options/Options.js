@@ -4,7 +4,7 @@ class Options extends Component {
     render() {
         return (
             <div>
-                
+                <p>Hello from Options!</p>
             </div>
         );
     }

@@ -4,7 +4,7 @@ class Play extends Component {
     render() {
         return (
             <div>
-                
+                <p>Hello from Play!</p>
             </div>
         );
     }

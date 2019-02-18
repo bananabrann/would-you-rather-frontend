@@ -4,7 +4,7 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                
+                <p>Hello from Homepage!</p>
             </div>
         );
     }
