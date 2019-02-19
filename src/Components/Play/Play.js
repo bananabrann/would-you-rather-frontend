@@ -5,11 +5,31 @@ class Play extends Component {
     constructor() {
         super();
         this.state = {
-            question1: "",
-            question2: "",
-            display: []
+            questionData: [],
+            // seed: 0
+            randomNum: 0
         };
+        // this.randomizeMe = this.randomizeMe.bind(this);
+        // this.giveRandomNum = this.giveRandomNum.bind(this);
+        // this.giveQuestion = this.giveQuestion.bind(this);
     }
+
+    // giveRandomNum() {
+    //     console.log("giveRandomNum called");
+
+    //     this.setState({
+    //         randomNum: randomNum
+    //     });
+    //     // console.log(randomNum);
+    //     // return randomNum;
+    // }
+
+    // giveQuestion() {
+    //     giveRandomNum();
+    //     this.setState({
+    //         currentQuestion: this.questionData[this.state.randomNum]
+    //     });
+    // }
 
     // userClicked() {
 
@@ -20,45 +40,57 @@ class Play extends Component {
 
     // Add both questions to the previousQuestions array.
     // }
+
+    // randomizeMe() {
+    //     console.log("randomizeMe called");
+    //     let randomizedNum = Math.floor(
+    //         Math.random() * this.state.questionData.length
+    //     );
+    //     console.log(`randomizedNum is ${randomizedNum}`);
+    //     this.setState({
+    //         seed: randomizedNum
+    //     });
+    //     console.log(`this.state.seed is ${this.state.seed}`);
+    // }
+
     componentDidMount() {
-        // Code that randomizes the selected and stores it into a variable called i
-
         console.log("Play: Component is mounting");
+        axios
+            .get("http://localhost:3001/play")
+            .then(json => {
+                this.setState({questionData: json.data})
+                console.log(this.state.questionData[1].question1)
+                // this works ^^^
+            })
+                .then(() => {
+                    // let randomNum = Math.floor(Math.random() * this.state.questionData.length)
+                    let randomNum = 2
+                    console.log(`the randomNum is ${randomNum}`)
+                    // Returns correct ^^^
 
-        // let randomizer =
-
-        axios.get("http://localhost:3001/play")
-        .then(json => {
-            this.setState({
-                display: json.data,
-                currentQuestion: this.state.display[Math.floor(Math.random()* this.state.display.length)]
-            },
-            () => console.log(this.state))
-           
-            
-            // () => {
-            //     var item = Math.floor(Math.random()* this.state.display.length)
-            //     let randomQuestion = this.state.display[Math.floor(Math.random()* this.state.display.length]
-            //     this.setState({
-            //         currentQuestion: randomQuestion
-            //     })
-            //     console.log(this.state.currentQuestion)
-            // }
-
-
-        });
+                    this.setState({randomNum: randomNum})
+                    console.log(`the state of randomNum is now ${this.setState.randomNum}`)
+                    // Returns undefined ^^^
+                    }
+                )
     }
 
     render() {
+        let randomNum = 2
+        let test = this.state.questionData[1]
         return (
             <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
-                    <h3>{this.state.question1}</h3>
+                    <p>{test.question1.data}</p>
+
+                    <p>
+                        {/* {this.state.questionData.map((item, i) => (
+                            <li key={i}>{item.question1}</li>
+                        ))} */}
+                    </p>
                 </div>
-                <div className="question2">
-                    <h3>{this.state.question2}</h3>
-                </div>
+                <div className="question2">q2</div>
             </div>
         );
     }
