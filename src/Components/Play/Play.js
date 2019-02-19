@@ -3,14 +3,13 @@ import axios from "axios";
 
 class Play extends Component {
     constructor() {
-
         // let randomNum = 2;
 
         super();
         this.state = {
             questionData: [],
             // seed: 0
-            randomNum: ''
+            randomNum: ""
         };
 
         // this.randomizeMe = this.randomizeMe.bind(this);
@@ -81,24 +80,25 @@ class Play extends Component {
     }
 
     render() {
-        
-        let randomNum = 2;
-        let test = this.state.questionData.map( (question, i)=> {
-            return (
-             <h2>{question.question1}</h2>
-            )
-        }).limit(2)
+        // let question = this.state.questionData.map((question, i) => {
+        //     return <h2>{question.question1}</h2>;
+        // });
+        // let questionLength = this.state.questionData.length
+
+        // while ((i < 2) && (!question.includes(previousQuestion) )) 
+        let question = this.state.questionData.map((question, i) => {
+            while ((i < 2)) {
+                return (
+                    <h4>{question.question1} OR {question.question2}</h4>
+                );
+            }
+        });
+
         return (
             <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
-                    <p>{test}</p>
-
-                    <p>
-                        {/* {this.state.questionData.map((item, i) => (
-                            <li key={i}>{item.question1}</li>
-                        ))} */}
-                    </p>
+                    <p>{question}</p>
                 </div>
                 <div className="question2">q2</div>
             </div>
