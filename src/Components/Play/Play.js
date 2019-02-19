@@ -7,7 +7,6 @@ class Play extends Component {
         this.state = {
             question1: "",
             question2: "",
-            previousQuestions: [],
             display: []
         };
     }
@@ -31,24 +30,22 @@ class Play extends Component {
         axios.get("http://localhost:3001/play")
         .then(json => {
             this.setState({
-                display: json.data
-            }, () => {
-                console.log("Second argument of setState reached")
-                var item = items[Math.floor(Math.random()*items.length)];
-                console.log(item)
-            }
-            )
-            .then(result => {
-                // let r = 2
-                console.log("Result:")
-                console.log(result)
+                display: json.data,
+                currentQuestion: this.state.display[Math.floor(Math.random()* this.state.display.length)]
+            },
+            () => console.log(this.state))
+           
+            
+            // () => {
+            //     var item = Math.floor(Math.random()* this.state.display.length)
+            //     let randomQuestion = this.state.display[Math.floor(Math.random()* this.state.display.length]
+            //     this.setState({
+            //         currentQuestion: randomQuestion
+            //     })
+            //     console.log(this.state.currentQuestion)
+            // }
 
 
-                // this.setState({
-                //     question1: result.data[r].question1,
-                //     question2: result.data[r].question2
-                // });
-            });
         });
     }
 
