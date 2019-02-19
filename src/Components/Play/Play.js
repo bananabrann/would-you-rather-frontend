@@ -10,7 +10,7 @@ class Play extends Component {
         this.state = {
             questionData: [],
             // seed: 0
-            randomNum: randomNum
+            randomNum: ''
         };
 
         // this.randomizeMe = this.randomizeMe.bind(this);
@@ -81,13 +81,18 @@ class Play extends Component {
     }
 
     render() {
+        
         let randomNum = 2;
-        let test = this.state.questionData[1];
+        let test = this.state.questionData.map( (question, i)=> {
+            return (
+             <h2>{question.question1}</h2>
+            )
+        }).limit(2)
         return (
             <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
-                    <p>{this.state.randomNum}</p>
+                    <p>{test}</p>
 
                     <p>
                         {/* {this.state.questionData.map((item, i) => (
