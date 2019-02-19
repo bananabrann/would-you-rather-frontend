@@ -3,12 +3,16 @@ import axios from "axios";
 
 class Play extends Component {
     constructor() {
+
+        // let randomNum = 2;
+
         super();
         this.state = {
             questionData: [],
             // seed: 0
-            randomNum: 0
+            randomNum: randomNum
         };
+
         // this.randomizeMe = this.randomizeMe.bind(this);
         // this.giveRandomNum = this.giveRandomNum.bind(this);
         // this.giveQuestion = this.giveQuestion.bind(this);
@@ -53,36 +57,37 @@ class Play extends Component {
     //     console.log(`this.state.seed is ${this.state.seed}`);
     // }
 
-    componentDidMount() {
+    componentWillMount() {
         console.log("Play: Component is mounting");
         axios
             .get("http://localhost:3001/play")
             .then(json => {
-                this.setState({questionData: json.data})
-                console.log(this.state.questionData[1].question1)
+                this.setState({ questionData: json.data });
+                // console.log(this.state.questionData[1].question1);
                 // this works ^^^
             })
-                .then(() => {
-                    // let randomNum = Math.floor(Math.random() * this.state.questionData.length)
-                    let randomNum = 2
-                    console.log(`the randomNum is ${randomNum}`)
-                    // Returns correct ^^^
+            .then(() => {
+                // let randomNum = Math.floor(Math.random() * this.state.questionData.length)
+                let randomNum = 2;
+                console.log(`the randomNum is ${randomNum}`);
+                // Returns correct ^^^
 
-                    this.setState({randomNum: randomNum})
-                    console.log(`the state of randomNum is now ${this.setState.randomNum}`)
-                    // Returns undefined ^^^
-                    }
-                )
+                this.setState({ randomNum: randomNum });
+                console.log(
+                    `the state of randomNum is now ${this.setState.randomNum}`
+                );
+                // Returns undefined ^^^
+            });
     }
 
     render() {
-        let randomNum = 2
-        let test = this.state.questionData[1]
+        let randomNum = 2;
+        let test = this.state.questionData[1];
         return (
             <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
-                    <p>{test.question1.data}</p>
+                    <p>{this.state.randomNum}</p>
 
                     <p>
                         {/* {this.state.questionData.map((item, i) => (
