@@ -40,7 +40,7 @@ class Play extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
                     <h3>{this.state.question1}</h3>

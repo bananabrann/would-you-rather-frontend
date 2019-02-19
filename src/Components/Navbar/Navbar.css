@@ -1,0 +1,41 @@
+.navbar {
+    background-color: rgb(104, 180, 231);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    vertical-align: center;
+    justify-content: center;
+}
+
+nav h1 {
+    font-family: "Courgette", cursive;
+    text-shadow: 2px 2px #ffbf0e;
+}
+@media (max-width: 480px) {
+    .navbar h1 {
+        font-size: 20px;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .navbar h1 {
+        font-size: 28px;
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .navbar h1 {
+        font-size: 36px;
+    }
+}
+@media (min-width: 980px) {
+    .navbar h1 {
+        font-size: 49px;
+    }
+}
+
+.home-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
