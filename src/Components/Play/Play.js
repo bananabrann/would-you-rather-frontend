@@ -7,33 +7,47 @@ class Play extends Component {
         this.state = {
             question1: "",
             question2: "",
-            previousQuestions: []
+            previousQuestions: [],
+            display: []
         };
     }
 
     // userClicked() {
 
-        // Add 1 to the databaase count of the one that was clicked
+    // Add 1 to the databaase count of the one that was clicked
 
-        // Back-end side: Question.find({_id: theselectedone.id}).then(count++)
-        // Front-end side: playController.clickedOne
+    // Back-end side: Question.find({_id: theselectedone.id}).then(count++)
+    // Front-end side: playController.clickedOne
 
-        // Add both questions to the previousQuestions array.
+    // Add both questions to the previousQuestions array.
     // }
     componentDidMount() {
         // Code that randomizes the selected and stores it into a variable called i
 
-
-
-        // if (prev question === prev question) go back and try again
-        // let i = "";
-        // let i2 = "";
-
         console.log("Play: Component is mounting");
-        axios.get("http://localhost:3001/play").then(json => {
+
+        // let randomizer =
+
+        axios.get("http://localhost:3001/play")
+        .then(json => {
             this.setState({
-                question1: json.data[0].content,
-                question2: json.data[1].content
+                display: json.data
+            }, () => {
+                console.log("Second argument of setState reached")
+                var item = items[Math.floor(Math.random()*items.length)];
+                console.log(item)
+            }
+            )
+            .then(result => {
+                // let r = 2
+                console.log("Result:")
+                console.log(result)
+
+
+                // this.setState({
+                //     question1: result.data[r].question1,
+                //     question2: result.data[r].question2
+                // });
             });
         });
     }
