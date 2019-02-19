@@ -4,7 +4,8 @@ class Question extends Component {
     render() {
         return (
             <div className="container">
-                <p>Hello from Questin!</p>
+                <p>Hello from Question!</p>
+
             </div>
         );
     }
