@@ -19,7 +19,7 @@ class EditQuestion extends Component {
         let question = this.state.questionData.map((question, i) => {
             return (
                 <div>
-                    <button>edit </button>
+                    <button>Edit </button><button>Delete </button>
                     <h4>
                         {question.question1} OR {question.question2}
                     </h4>
