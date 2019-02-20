@@ -10,7 +10,7 @@ class EditQuestion extends Component {
         };
         this.destroy = this.destroy.bind(this);
     }
-    componentWillMount() {
+    componentDidMount() {
         console.log("Play: Component is mounting");
         axios.get("http://localhost:3001/play").then(json => {
             this.setState({ questionData: json.data });
