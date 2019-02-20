@@ -40,9 +40,9 @@ class EditQuestion extends Component {
                     {/* <h1>{question._id}</h1> */}
 
                     <h4>{question.question1} OR {question.question2}</h4>
-
+                    {/* () => this.destroy(question._id) */}
                     {/* <button onClick={this.destroy(question._id)}>Delete</button> */}
-                    <button onClick={() => {this.destroy()}} >Delete</button>
+                    <button onClick={() => this.destroy(question._id)} >Delete</button>
 
                     <button>edit </button>
                     {/* <form onSubmit={this.destroy(question._id)}>
