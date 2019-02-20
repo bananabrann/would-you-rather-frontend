@@ -21,7 +21,7 @@ class EditQuestion extends Component {
         console.log("We're gonna DESTROY!!!!");
         // evt.preventDefault()
         axios
-            .delete("http://localhost:3001/edit", { })
+            .delete("http://localhost:3001/edit", { evt })
             .catch(err => {
                 console.log(err);
             });
@@ -42,7 +42,7 @@ class EditQuestion extends Component {
                     <h4>{question.question1} OR {question.question2}</h4>
 
                     {/* <button onClick={this.destroy(question._id)}>Delete</button> */}
-                    <button onClick={() => {this.destroy()}} >Delete</button>
+                    <button onClick={() => this.destroy(question)} >Delete</button>
 
                     <button>edit </button>
                     {/* <form onSubmit={this.destroy(question._id)}>
