@@ -17,15 +17,20 @@ class EditQuestion extends Component {
         });
     }
 
-    destroy(questionId) {
+    destroy(evt) {
         console.log("We're gonna DESTROY!!!!");
         // evt.preventDefault()
         axios
-            .delete("http://localhost:3001/edit", { id: questionId })
+            .delete("http://localhost:3001/edit", { })
             .catch(err => {
                 console.log(err);
             });
     }
+
+    // handleClick() {
+    //     evt.preventDefault()
+    //     destroy()
+    // }
 
     render() {
         console.log("EditQuestion: rendered");
@@ -34,20 +39,18 @@ class EditQuestion extends Component {
                 <div>
                     {/* <h1>{question._id}</h1> */}
 
-                    {/* <button onClick={this.destroy(question._id)}>
-                            Delete
-                        </button> */}
-                    <form onSubmit={this.destroy(question._id)}>
-                        <h4>
-                            {question.question1} OR {question.question2}
-                        </h4>{" "}
-                        */}
-                        {/* <button>edit </button> */}
+                    <h4>{question.question1} OR {question.question2}</h4>
+
+                    {/* <button onClick={this.destroy(question._id)}>Delete</button> */}
+                    <button onClick={() => {this.destroy()}} >Delete</button>
+
+                    <button>edit </button>
+                    {/* <form onSubmit={this.destroy(question._id)}>
                         <input type="submit" value="Delete" />
                     </form>
                     <form>
                         <input type="submit" value="Edit" />
-                    </form>
+                    </form> */}
                 </div>
             );
         });
