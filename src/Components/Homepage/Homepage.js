@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { Route, Link, Redirect } from "react-router-dom";
+import "./Homepage.css";
 
 class Homepage extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <p>Hello from Homepage!</p>
-                <Link to="/play">
-                    <button>Play!</button>
-                </Link>
-                <Link to="/stats">
-                    <button>Stats</button>
-                </Link>
-                <Link to="/options">
-                    <button>Options</button>
-                </Link>
+                <div className="btn-group" role="group" aria-label="Basic">
+                    <Link to="/play">
+                        <button className="btn btn-primary">Play!</button>
+                    </Link>
+                    <Link to="/stats">
+                        <button className="btn btn-primary">Stats</button>
+                    </Link>
+                    <Link to="/options">
+                        <button className="btn btn-primary">Options</button>
+                    </Link>
+                </div>
 
                 <Route
                     path="/path"
