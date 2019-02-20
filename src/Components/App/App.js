@@ -38,7 +38,9 @@ class App extends Component {
                 <Route exact path="/stats" render={() => <Stats />} />
                 <Route exact path="/options" render={() => <Options />} />
                 <Route exact path="/create" render={() => <NewQuestion />} />
-                <Route exact path="/edit" render={() => <EditQuestion />} />
+                <Route exact path="/edit" render={() => <EditQuestion 
+                    questions={this.state.questionData}
+                />} />
                 <Footer />
             </div>
         );
