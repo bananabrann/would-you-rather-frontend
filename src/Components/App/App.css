@@ -3,3 +3,11 @@
     height: 100%;
     width: 100%;
 }
+
+.edit-field{
+    background-color: red;
+}
+
+.show-edit-field {
+    display: none;
+}
