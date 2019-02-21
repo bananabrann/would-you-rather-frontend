@@ -18,11 +18,18 @@ class App extends Component {
         super();
         this.state = {
             formDisplay: false,
-            questionData: []
+            questionData: [],
+            // selectedEditQuestion: {
+                question1: '',
+                question2: '',
+            selectedEditQuestion1: "",
+            selectedEditQuestion2: ""
+            // }
         };
         this.deleteQuestion = this.deleteQuestion.bind(this);
         this.toggleForm = this.toggleForm.bind(this);
-        this.updateQuestion = this.updateQuestion.bind(this)
+        this.updateQuestion = this.updateQuestion.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -33,47 +40,60 @@ class App extends Component {
     }
 
     toggleForm(evt) {
-        evt.preventDefault()
+        evt.preventDefault();
         this.setState({
-          formDisplay: !this.state.formDisplay
+            formDisplay: !this.state.formDisplay
         });
-      }
+    }
 
-      updateQuestion(evt) {
+    updateQuestion(evt) {
         evt.preventDefault();
         const { questionData } = this.state;
         const questionId = evt.target.id;
+
         // this.setState({
-        //     questionData: questionData.filter(q => q._id !== questionId)
+        //     selectedQuestion: questionData.filter(q => q._id !== questionId)
         // });
-        // this.setState({
-        //     formDisplay: true
-        // })
-        console.log("hello1")
 
         // If we want to access data within the textarea (what was typed), we access it with:
-        console.log(evt.target.question1.value)
-        console.log(evt.target.question2.value)
-
+        // console.log(evt.target.question1.value);
+        // console.log(evt.target.question2.value);
         axios
             .put(url + "/edit", {
-                data: { 
-                    question1: evt.target.question1.value, 
-                    question2: evt.target.question2.value,
+                data: {
+                    question1: this.state.question1,
+                    question2: this.state.question2,
                     id: questionId
                 }
+            })
+            .then(() => {
+                console.log('updated in db')
+                
+                // using this.state.questionData
+                let updated = this.state.questionData.map((q, i) => {
+                    if(q._id === questionId) {
+                        q.question1 = this.state.question1
+                        q.question2 = this.state.question2
+                    }
+                    return q
+                })
+                console.log(updated)
+                this.setState({questionData: updated})
+                // find id of question to update
+                // update it
+                // set the entire state
+                // set state
             })
             .catch(err => {
                 console.log(err);
             });
     }
 
-    //  Frontend : 
-
     deleteQuestion(evt) {
         evt.preventDefault();
         const { questionData } = this.state;
         const questionId = evt.target.id;
+
         this.setState({
             questionData: questionData.filter(q => q._id !== questionId)
         });
@@ -86,6 +106,18 @@ class App extends Component {
             });
     }
 
+    handleChange(evt) {
+        console.log("handleChange!");
+
+        // console.log(evt.target.value)
+        this.setState({
+            // selectedEditQuestion: {
+            // selectedEditQuestion1: evt.target.value.question1,
+            [evt.target.name]: evt.target.value,
+            // }
+        })
+    }
+
     render() {
         return (
             <div className="container app-box">
@@ -94,8 +126,7 @@ class App extends Component {
                 <Route
                     exact
                     path="/play"
-                    render={() => <Play 
-                                    questions={this.state.questionData} />}
+                    render={() => <Play questions={this.state.questionData} />}
                 />
                 <Route exact path="/stats" render={() => <Stats />} />
                 <Route exact path="/options" render={() => <Options />} />
@@ -110,6 +141,7 @@ class App extends Component {
                             update={this.updateQuestion}
                             formDisplay={this.state.formDisplay}
                             toggleForm={this.toggleForm}
+                            handleChange={this.handleChange}
                         />
                     )}
                 />
