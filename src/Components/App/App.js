@@ -22,6 +22,7 @@ class App extends Component {
         };
         this.deleteQuestion = this.deleteQuestion.bind(this);
         this.toggleForm = this.toggleForm.bind(this);
+        this.updateQuestion = this.updateQuestion.bind(this)
     }
 
     componentDidMount() {
@@ -37,6 +38,7 @@ class App extends Component {
           formDisplay: !this.state.formDisplay
         });
       }
+
       updateQuestion(evt) {
         evt.preventDefault();
         const { questionData } = this.state;
@@ -44,12 +46,13 @@ class App extends Component {
         // this.setState({
         //     questionData: questionData.filter(q => q._id !== questionId)
         // });
-        this.setState({
-            formDisplay: true
-        })
+        // this.setState({
+        //     formDisplay: true
+        // })
+
         axios
             .put(url + "/edit", {
-                data: { id: questionId }
+                // data: { question1: evt.target.question1 }
             })
             .catch(err => {
                 console.log(err);
@@ -95,6 +98,7 @@ class App extends Component {
                         <EditQuestion
                             questions={this.state.questionData}
                             delete={this.deleteQuestion}
+                            update={this.updateQuestion}
                             formDisplay={this.state.formDisplay}
                             toggleForm={this.toggleForm}
                         />

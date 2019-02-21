@@ -23,21 +23,25 @@ class EditQuestion extends Component {
                             <textarea
                                 rows="4"
                                 cols="50"
+
                                 name="question1"
                                 className="question1"
-                                onChange={this.handleChange}
+                                // onChange={this.handleChange}
                             />
                             <textarea
                                 rows="4"
                                 cols="50"
+
                                 name="question2"
                                 className="question2"
-                                onChange={this.handleChange}
+                                // onChange={this.handleChange}
                             />
-                            <button type="submit">Submit Edits</button>
+                            <br />
+
+                            <button>Submit Edits</button>
+
                         </div>
                     </form>
-
                 </div>
             );
         });
