@@ -1,63 +1,32 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 class EditQuestion extends Component {
-    constructor() {
-        console.log("EditQuestion: constructor");
-        super();
-        this.state = {
-            questionData: []
-        };
-        this.destroy = this.destroy.bind(this);
-    }
-    componentWillMount() {
-        console.log("Play: Component is mounting");
-        axios.get("http://localhost:3001/play").then(json => {
-            this.setState({ questionData: json.data });
-        });
-    }
 
-    destroy(evt) {
-        console.log("We're gonna DESTROY!!!!");
-        // evt.preventDefault()
-        axios
-            .delete("http://localhost:3001/edit", { })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-
-    // handleClick() {
-    //     evt.preventDefault()
-    //     destroy()
-    // }
 
     render() {
-        console.log("EditQuestion: rendered");
-        let question = this.state.questionData.map((question, i) => {
+        const question = this.props.questions.map((question, i) => {
             return (
                 <div>
-                    {/* <h1>{question._id}</h1> */}
+                    <form id={question._id} onSubmit={this.props.delete}>
 
-                    <h4>{question.question1} OR {question.question2}</h4>
-                    {/* () => this.destroy(question._id) */}
-                    {/* <button onClick={this.destroy(question._id)}>Delete</button> */}
-                    <button onClick={() => this.destroy(question._id)} >Delete</button>
+<<<<<<< delete-debug
+                        <h4 key={question._id}>{question.question1} OR {question.question2}</h4>
 
-                    <button>edit </button>
-                    {/* <form onSubmit={this.destroy(question._id)}>
-                        <input type="submit" value="Delete" />
+                        <button >Delete</button>
+                        <button>edit </button>
+=======
+
+>>>>>>> dev
+
                     </form>
-                    <form>
-                        <input type="submit" value="Edit" />
-                    </form> */}
                 </div>
             );
         });
         return (
             <div className="container">
-                <p>Hello from DeleteQuestion!</p>
-                <p>{question}</p>
+                <h2>Hello from DeleteQuestion!</h2>
+                <div>{question}</div>
             </div>
         );
     }
