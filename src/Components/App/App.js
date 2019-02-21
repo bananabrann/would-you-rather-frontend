@@ -100,7 +100,9 @@ class App extends Component {
                 <Route
                     exact
                     path="/play"
-                    render={() => <Play questions={this.state.questionData} />}
+                    render={() => (
+                        <Play questionData={this.state.questionData} />
+                    )}
                 />
                 <Route exact path="/stats" render={() => <Stats />} />
                 <Route exact path="/options" render={() => <Options />} />
