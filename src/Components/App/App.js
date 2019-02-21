@@ -49,10 +49,19 @@ class App extends Component {
         // this.setState({
         //     formDisplay: true
         // })
+        console.log("hello1")
+
+        // If we want to access data within the textarea (what was typed), we access it with:
+        console.log(evt.target.question1.value)
+        console.log(evt.target.question2.value)
 
         axios
             .put(url + "/edit", {
-                // data: { question1: evt.target.question1 }
+                data: { 
+                    question1: evt.target.question1.value, 
+                    question2: evt.target.question2.value,
+                    id: questionId
+                }
             })
             .catch(err => {
                 console.log(err);

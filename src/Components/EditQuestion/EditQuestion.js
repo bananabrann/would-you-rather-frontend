@@ -13,7 +13,7 @@ class EditQuestion extends Component {
                         <button>Delete</button>
                     </form>
 
-                    <form onSubmit={this.props.update}>
+                    <form  id={question._id} onSubmit={this.props.update}>
                         <button onClick={this.props.toggleForm}>edit </button>
                         <div
                             className={
