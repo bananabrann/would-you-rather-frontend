@@ -19,12 +19,8 @@ class App extends Component {
         this.state = {
             formDisplay: false,
             questionData: [],
-            // selectedEditQuestion: {
-                question1: '',
-                question2: '',
             selectedEditQuestion1: "",
             selectedEditQuestion2: ""
-            // }
         };
         this.deleteQuestion = this.deleteQuestion.bind(this);
         this.toggleForm = this.toggleForm.bind(this);
@@ -50,39 +46,23 @@ class App extends Component {
         evt.preventDefault();
         const { questionData } = this.state;
         const questionId = evt.target.id;
-
-        // this.setState({
-        //     selectedQuestion: questionData.filter(q => q._id !== questionId)
-        // });
-
-        // If we want to access data within the textarea (what was typed), we access it with:
-        // console.log(evt.target.question1.value);
-        // console.log(evt.target.question2.value);
         axios
             .put(url + "/edit", {
                 data: {
-                    question1: this.state.question1,
-                    question2: this.state.question2,
+                    question1: this.state.selectedEditQuestion1,
+                    question2: this.state.selectedEditQuestion2,
                     id: questionId
                 }
             })
             .then(() => {
-                console.log('updated in db')
-                
-                // using this.state.questionData
                 let updated = this.state.questionData.map((q, i) => {
-                    if(q._id === questionId) {
-                        q.question1 = this.state.question1
-                        q.question2 = this.state.question2
+                    if (q._id === questionId) {
+                        q.question1 = this.state.question1;
+                        q.question2 = this.state.question2;
                     }
-                    return q
-                })
-                console.log(updated)
-                this.setState({questionData: updated})
-                // find id of question to update
-                // update it
-                // set the entire state
-                // set state
+                    return q;
+                });
+                this.setState({ questionData: updated });
             })
             .catch(err => {
                 console.log(err);
@@ -107,15 +87,9 @@ class App extends Component {
     }
 
     handleChange(evt) {
-        console.log("handleChange!");
-
-        // console.log(evt.target.value)
         this.setState({
-            // selectedEditQuestion: {
-            // selectedEditQuestion1: evt.target.value.question1,
-            [evt.target.name]: evt.target.value,
-            // }
-        })
+            [evt.target.name]: evt.target.value
+        });
     }
 
     render() {

@@ -13,21 +13,28 @@ class EditQuestion extends Component {
                         <button>Delete</button>
                     </form>
 
-                    <form  id={question._id} onChange={this.props.handleChange} onSubmit={this.props.update}>
+                    <form
+                        id={question._id}
+                        onChange={this.props.handleChange}
+                        onSubmit={this.props.update}
+                    >
                         <button onClick={this.props.toggleForm}>edit </button>
-                        <div className={this.props.formDisplay ? "" : "show-edit-field"} >
+                        <div
+                            className={
+                                this.props.formDisplay ? "" : "show-edit-field"
+                            }
+                        >
                             <textarea
                                 rows="4"
                                 cols="50"
                                 name="question1"
                                 className="question1"
                                 // value={question.question1}
-                                onChange={this.handleChange} 
-                                />
+                                onChange={this.handleChange}
+                            />
                             <textarea
                                 rows="4"
                                 cols="50"
-
                                 name="question2"
                                 className="question2"
                                 // value={question.question2}
@@ -36,7 +43,6 @@ class EditQuestion extends Component {
                             <br />
 
                             <button>Submit Edits</button>
-
                         </div>
                     </form>
                 </div>
@@ -44,7 +50,6 @@ class EditQuestion extends Component {
         });
         return (
             <div className="container">
-                <h2>Hello from DeleteQuestion!</h2>
                 <div>{question}</div>
             </div>
         );
