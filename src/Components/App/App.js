@@ -37,6 +37,26 @@ class App extends Component {
           formDisplay: !this.state.formDisplay
         });
       }
+      updateQuestion(evt) {
+        evt.preventDefault();
+        const { questionData } = this.state;
+        const questionId = evt.target.id;
+        // this.setState({
+        //     questionData: questionData.filter(q => q._id !== questionId)
+        // });
+        this.setState({
+            formDisplay: true
+        })
+        axios
+            .put(url + "/edit", {
+                data: { id: questionId }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    //  Frontend : 
 
     deleteQuestion(evt) {
         evt.preventDefault();
