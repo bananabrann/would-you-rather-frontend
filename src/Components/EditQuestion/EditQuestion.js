@@ -10,14 +10,11 @@ class EditQuestion extends Component {
                 <div>
                     <form id={question._id} onSubmit={this.props.delete}>
 
-<<<<<<< delete-debug
+
                         <h4 key={question._id}>{question.question1} OR {question.question2}</h4>
 
                         <button >Delete</button>
                         <button>edit </button>
-=======
-
->>>>>>> dev
 
                     </form>
                 </div>
