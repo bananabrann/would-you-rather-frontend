@@ -5,16 +5,28 @@ class Play extends Component {
     constructor() {
         super() 
         this.setState({
-
+            // questionData: [...this.props.questionData]
+            // questionData: this.props.questionData
+            questionData: [this.props.questionData]
         })
         this.clickQuestion = this.clickQuestion.bind(this)
         this.shuffle = this.shuffle.bind(this)
     }
 
 
-    clickQuestion() {
-        console.log("hi!")
-        // add the count to the question
+    clickQuestion(evt) {
+        console.log("clickquestion!")
+        console.log(evt)
+
+
+        // add the count to the question via axios post request
+        // axios
+        //     .post(url + "/play", {
+        //         data: {
+        //             the code that selects whatever
+        //             id: questionId
+        //         }
+        //     })
 
         // display the next button
 
@@ -28,15 +40,19 @@ class Play extends Component {
             const j = Math.floor(Math.random() * (i + 1));
             [a[i], a[j]] = [a[j], a[i]];
         }
-        return a;
+        // return a;
+        this.setState ={
+            questionData: a
+        }
     }
     
 
     render() {
         
-
+        console.log("render")
+        // console.log(this.state.questionData)
         // OLD WAY:
-        
+
         // let shuffle = (a) => {
         //     for (let i = a.length - 1; i > 0; i--) {
         //         const j = Math.floor(Math.random() * (i + 1));
@@ -45,8 +61,8 @@ class Play extends Component {
         //     return a;
         // }
 
-        this.shuffle(this.props.questionData);
-        console.log(this.props.questionData)
+        // this.shuffle(this.state.questionData);
+        console.log(this.state.questionData)
 
         let question = this.props.questionData.map((question, i) => {
             while (i < 1) {
@@ -67,6 +83,7 @@ class Play extends Component {
                     <p>{question}</p>
                 </div>
                 <div className="question2">q2</div>
+                <button onClick={() => {this.shuffle(this.state.questionData)}}>Next!</button>
             </div>
         );
     }
