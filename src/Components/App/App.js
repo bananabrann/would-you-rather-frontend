@@ -17,9 +17,11 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
+            formDisplay: false,
             questionData: []
         };
         this.deleteQuestion = this.deleteQuestion.bind(this);
+        this.toggleForm = this.toggleForm.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +30,13 @@ class App extends Component {
             this.setState({ questionData: json.data });
         });
     }
+
+    toggleForm(evt) {
+        evt.preventDefault()
+        this.setState({
+          formDisplay: !this.state.formDisplay
+        });
+      }
 
     deleteQuestion(evt) {
         evt.preventDefault();
@@ -66,6 +75,8 @@ class App extends Component {
                         <EditQuestion
                             questions={this.state.questionData}
                             delete={this.deleteQuestion}
+                            formDisplay={this.state.formDisplay}
+                            toggleForm={this.toggleForm}
                         />
                     )}
                 />

@@ -14,9 +14,22 @@ class EditQuestion extends Component {
                         <h4 key={question._id}>{question.question1} OR {question.question2}</h4>
 
                         <button >Delete</button>
-                        <button>edit </button>
-
                     </form>
+                    <form>
+                    <button onClick={this.props.toggleForm}>edit </button>
+                    <div
+                        className={
+                        (this.props.formDisplay ? '' : 'show-edit-field')
+                        }>
+                        <textarea rows='4' cols= '50' name="question1" className="question1" onChange={this.handleChange} />
+                        <textarea rows='4' cols= '50' name="question2" className="question2" onChange={this.handleChange} />
+                    </div>
+                         
+                    </form>
+                    <div className='editInput-body'>
+
+                    </div>
+              
                 </div>
             );
         });
