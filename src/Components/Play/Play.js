@@ -17,10 +17,10 @@ class Play extends Component {
         shuffle(this.props.questions);
 
         let question = this.props.questions.map((question, i) => {
-            while (i < 2) {
+            while (i < 1) {
                 return (
                     <h4>
-                        {question.question1} OR 
+                        {question.question1} OR {question.question2}
                     </h4>
                 );
             }
