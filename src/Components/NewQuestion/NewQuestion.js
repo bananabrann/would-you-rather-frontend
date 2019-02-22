@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+const url = 'https://would-you-rather-backend.herokuapp.com/'
 
 class NewQuestion extends Component {
     constructor(){
@@ -12,7 +13,7 @@ class NewQuestion extends Component {
     submit(e) {
         e.preventDefault()
         console.log(e.target.value)
-        axios.post('http://localhost:3001/create', this.state)
+        axios.post(url + 'create', this.state)
           .catch((err) => {
             console.log(err)
           })

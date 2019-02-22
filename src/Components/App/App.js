@@ -11,7 +11,7 @@ import EditQuestion from "../EditQuestion/EditQuestion";
 import Options from "../Options/Options";
 import { Route } from "react-router-dom";
 
-const url = "http://localhost:3001";
+const url = "https://would-you-rather-backend.herokuapp.com";
 
 class App extends Component {
     constructor() {
