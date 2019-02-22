@@ -17,7 +17,7 @@ class Play extends Component {
         shuffle(this.props.questions);
 
         let question = this.props.questions.map((question, i) => {
-            while (i < 1) {
+            while (i < 2) {
                 return (
                     <h4>
                         {question.question1} OR 
