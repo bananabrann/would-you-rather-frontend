@@ -30,7 +30,6 @@ class Play extends Component {
             <div className="container">
                 <p>Hello from Play!</p>
                 <div className="question1">
-                    <p>{question}</p>
                 </div>
             </div>
         );
