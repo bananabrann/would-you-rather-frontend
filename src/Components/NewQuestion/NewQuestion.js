@@ -32,7 +32,7 @@ class NewQuestion extends Component {
                     <textarea rows='4' cols= '50' name="question1" className="question1" onChange={this.handleChange} /><br />
                     <h1> OR </h1>
                     <textarea rows='4' cols= '50' name="question2" className="question2" onChange={this.handleChange} /><br />
-                    <input type="submit" value="poop" name="submit"/>
+                    <input type="submit" value="Submit" name="submit" className="btn btn-primary" />
                 </form>
 
             </div>

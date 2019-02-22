@@ -8,10 +8,10 @@ class Options extends Component {
                 <p>Hello from Options!</p>
                 <Link to="/create">
                 
-                <button className="btn">Create</button>
+                <button className="btn btn-primary">Create</button>
                 </Link>
                 <Link to="/edit">
-                <button className="btn">Edit</button>
+                <button className="btn btn-primary">Edit</button>
                 </Link>
             </div>
         );
