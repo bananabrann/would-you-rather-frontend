@@ -32,7 +32,6 @@ class Play extends Component {
                 <div className="question1">
                     <p>{question}</p>
                 </div>
-                <div className="question2">q2</div>
             </div>
         );
     }
