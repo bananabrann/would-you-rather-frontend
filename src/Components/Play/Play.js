@@ -20,7 +20,7 @@ class Play extends Component {
             while (i < 1) {
                 return (
                     <h4>
-                        {question.question1} OR {question.question2}
+                        {question.question1} OR 
                     </h4>
                 );
             }
@@ -28,6 +28,7 @@ class Play extends Component {
 
         return (
             <div className="container">
+            {question}
             </div>
         );
     }
