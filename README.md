@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Would You Rather!?
 
-## Available Scripts
+Would you rather is a simple game of choices that can be played individually or as a group.  Choose "Play" and the game will provide the user with questions to ponder.  "Would you rather do this, or that?" 
 
-In the project directory, you can run:
+Would You Rather!? was built as a small group effort using the MERN stack (MongoDB, Express, React, Node).  The app features full CRUD (create, read, update, delete) and is consided v1.0 MVP (Minimum Viable Product).  The app was built utilizing GitHub's Gitflow workflow build for.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app has been deloyed to Heroku. Given how slow Heroku may be, you may find you need to refresh the page a few times to wake it up.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Deployed URL
+ https://sei-wouldyourather.surge.sh/
 
-### `npm test`
+# Repositories:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend: https://github.com/bananabrann/would-you-rather-frontend
 
-### `npm run build`
+Backend: https://github.com/RendonEls/would-you-rather-backend
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ # Screenshot Sample
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![Screenshot](./planning/images/screenShot.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# Works in progress
+As of Feb. 22, 2019:  
+    1. Finish styling across all pages
+    2. Refactor code to be DRY
+    3. Clean up CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Future Feature Adds:
+1. Add option to pull questions from a "PG13" database
+2. Make the app 100% mobile friendly
+3. Add Stats options to show how many times a user selected each option per question set
+4. Finish About section 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Project Plan for MVP:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Plan](./planning/images/Planning-chart.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Planning
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Day 1: 
+  
+  1. User Story
+  -- user will see the homepage on first visit, homepage will clearly display selection buttons to Play, see stats, or options to edit game play.  The game will allow users to add additional questions, remove, or edit other questions.  User will also be able to play the game
+  2. Wire Frame
+  3. Create Repos for Github and clone down
+  4. Setup directory/file structure
+  5. plan/install dependencies
+  6. build backend with node, server with express
+  7. build frontend with react
+  8. connect frontend and backend
+  9. set goals for Day 2
 
-### Code Splitting
+  Day 2: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  1. build model: Play
+  2. create DB with seed.js file 
+  3. fill seed file with test dataand logic for filling mongoDB
+  4. Develop Create question form
+  5. Develop edit question form
+  6. Add logic on backend for POST of additional questions
+  7. Plan goals for Day 3
 
-### Analyzing the Bundle Size
+  Day 3:
+  1. Add Delete and Edit buttons to frontend
+  2. Add PUT logic for frontend
+  3. Add PUT logic for backend
+  4. add Edit logic for frontend -- not accomplished
+  5. add Edit logic for backend -- not accomplished
+  6. Play day 4 goals
+  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+  Day 4:
+  1. finish update/delete logic
+  2. Plan day 5 goals
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  Day 5:
+  1. Deploy app
+  2. user documentation
+  3. with available time add styling/refactor
